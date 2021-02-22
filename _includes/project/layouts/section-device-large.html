@@ -1,0 +1,23 @@
+
+{% assign image   = include.image %}
+{% assign content = include.content %}
+<div class="">
+  <div class="container vpad--xl">
+
+    <div class="row scrolltrack {% if include.flip %} row{% endif %}">
+
+      <div class="col col--9 scrolltrack__image">
+
+          <div class="bv-shadow bv-devices bg-img--16-9" style="">
+            <iframe class="bv-devices-iframe" src="{{image}}" ></iframe>
+          </div>
+          <div class="bv-shadow bv-mob-hide" style="width:100%; height: 2vh; background-color: #666; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+
+      </div>
+      <div class="col col--3 scrolltrack__content">
+        {{content}}
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+
+{% assign nav-pages = site.html_pages | where: 'nav', 'true' | sort: 'nav-order' %}
+
+<ul class="{{include.block}}__list">
+  {% for nav-page in nav-pages %}
+  <li class="{{include.block}}__list-item{% if nav-page.id == page.id %} is-current{% endif %}">
+    <a class="{{include.block}}__list-link" href="{{site.baseurl}}{{nav-page.url}}">
+      {% if nav-page.nav-title %}
+        {{nav-page.nav-title}}
+      {% else %}
+        {{nav-page.title}}
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+

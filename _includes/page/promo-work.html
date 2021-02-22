@@ -1,0 +1,20 @@
+<div class="work-promo">
+
+  <a href="{{site.baseurl}}/work" class="work-promo__link"></a>
+  <div class="work-promo__content">
+    <div class="container container--xl text--center text--white">
+      <div class="title title--lg">View our recent work</div>
+    </div>
+  </div>
+
+  <div class="work-promo__bg row row--constant-4-4-4 row--no-gutters">
+    {% assign projects = site.html_pages | where: 'layout', 'project' | sort:'group-order' %}
+    {% for project in projects %}
+      <div class="col">
+        <div class="bg-img bg-img--2-3 bg-img--lg-1-1 bg-img--xxl-3-2" style="background-image: url({{site.img}}/projects/{{project.id}}/banner.jpg);"></div>
+      </div>
+      {% if forloop.index == 3 %} {% break %} {% endif %}
+    {% endfor %}
+  </div>
+
+</div>

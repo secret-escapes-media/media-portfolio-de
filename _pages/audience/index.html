@@ -1,0 +1,125 @@
+---
+layout: default
+id: audience
+title: Audience
+nav: true
+nav-order: 3
+
+intro: >
+  <p class="text--xl">Our prized membership of discerning travellers is our greatest strength, and the best asset for you to utilise in a media partnership. With more than 62 million members across 21 territories, we’ll find the right audience for you. Let us help you effectively broadcast your brand to our members and inspire their escapes.  </p>
+
+audience:
+  subtitle: Our members
+  title: Discerning travellers
+  content: They are curious about the world, but won’t compromise on comfort. They’re savvy and spontaneous and won’t think twice about purchasing something at an unmissable price. They’re open to inspiration, trusting us to show them only the finest escapes worldwide; only 6% of bookers were actively planning a trip when they booked with us. We can put your brand at the forefront of that conversation – that’s a global audience of 62 million, ready to engage with something new.
+  stats:
+    - number: 60% &nbsp;40%
+      title: Gender
+      detail: Women &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Men &nbsp; &nbsp;
+      icon: gender
+      scale: "transform: scale(.7);"
+    - number: 55%
+      title: Average Age Range
+      icon: age
+      detail: " 20 - 49 yers"
+      scale: "transform: scale(.7);"
+    - number: 47%
+      title: Average household income
+      icon: income
+      detail: "over 3,000 €"
+      scale: "transform: scale(.7);"
+    - number: 81%
+      title: Quality Conscious
+      icon: quality
+      detail: "pay more for quality"
+      scale: "transform: scale(.9);"
+    - number: 69%
+      title: Living situation
+      icon: living
+      detail: "live in big cities and own their accomodation"
+      scale: "transform: scale(.9);"
+    - number: 48%
+      title: Reisefreudig
+      icon: travel
+      detail: "verreisen im Schnitt 3–4 Reisen pro Jahr, davon 1-2 Fernreisen"
+      scale: "transform: scale(.7);"
+
+
+---
+
+
+<div class="vpad--xl">
+  <div class="container">
+    <div class="width width--lg">
+      {{page.intro}}
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="vpad--xl">
+
+
+
+  <!-- AUDIENCE -->
+  <div class="container">
+
+    <div class="width width--xl text--center">
+      <h2 class="title title--sans text--upper title--xxxs text--wide">{{page.audience.subtitle}}</h2>
+      <div class="space--xs"></div>
+      <h3 class="title title--lg">{{page.audience.title}}</h3>
+      <div class="space--md"></div>
+      <p class="text--lg">{{page.audience.content}}</p>
+      <div class="space--md"></div>
+    </div>
+
+    <div class="space--lg"></div>
+
+    <div class="row row--gutters-sm text--center">
+      {% for stat in page.audience.stats %}
+      <div class="col col--constant-6 col--lg-4">
+        <div class="boxpad--sm  vpad--sm">
+          <div class="space--xs"></div>
+              <span class="text--upper text--bold title title--sans">{{stat.title}}</span>
+          <div class="bg-img bg-img--16-9 bv-results bv-results-{{stat.icon}}" style=" background-image: url({{site.img}}/icons/icon-audience-{{stat.icon}}.svg); {{stat.scale}}" alt="{{stat.title}}"></div>
+          <div class="title title--lg text--turquoise">{{stat.number}}</div>
+          <div class="space--xs"></div>
+          <span class=" text--normal ">{{stat.detail}}</span>
+          <hr>
+          <div class="space--xs"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- REACH MAP -->
+<div class="bg--grey-darkest reach">
+
+  <div class="reach__content text--white vpad--xxl">
+    <div class="container">
+      <div class="row row--no-gutters">
+        <div class="col col--4">
+          <h2 class="title title--sans text--upper title--xxxs text--wide">Our reach</h2>
+          <div class="space--xs"></div>
+          <h3 class="title title--lg">Secret Escapes Worldwide</h3>
+          <p class="text--lg">Our global reach stretches across 21 territories, covering the USA, South East Asia and Europe. What’s more, our commercial partnerships allow us to leverage the most exclusive brands. Discover where we can position you!</p>
+          <!-- <br>
+          <a class="map-toggle map-toggle-active" id="map-pin1"><div class="map-secretescapes">secretescapes</div></a> -->
+        </div>
+        <div class="col col--8">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reach__map" id="map"></div>
+
+</div>

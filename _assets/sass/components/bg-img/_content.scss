@@ -1,0 +1,66 @@
+// styles for adding titles, links and hover effects for .bg-image
+
+.bg-img {
+  // background-color: $grey-lightest;
+  // Vertically centered content in bg-image
+  @include transition;
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content-overlay;
+    cursor: pointer;
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content-upper;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-align: center;
+    @include page-padding;
+    & .title { color: $white; }
+  }
+  &__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content-upper;
+    text-align: center;
+    background-color: rgba($grey-darkest,0.8);
+    color: $white;
+    @include page-padding;
+    & .title { color: $white; }
+  }
+  &__video {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+  }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-content;
+    background-color: rgba($black,.4);
+    @include transition;
+  }
+  &:hover &__overlay { background-color: rgba($black,.6); }
+
+  // modifiers
+  &--zoom {
+    transform: scale(1);
+    &:hover { transform: scale(1.05); }
+  }
+}

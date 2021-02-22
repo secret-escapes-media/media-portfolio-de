@@ -1,0 +1,19 @@
+<div class="project-tile" style="background-image: url({{site.img}}/projects/{{project.id}}/banner.jpg); height:100px!important;">
+  <a href="{{site.baseurl}}{{project.url}}" class="project-tile__link"></a>
+  <div class="project-tile__content">
+    <div class="boxpad--lg">
+
+      <div class="text--upper text--wide-lg text--bold">
+        {% for detail in project.details %}{% if detail.key == 'Client' %}
+          {{detail.val}}
+        {% endif %}{% endfor %}
+      </div>
+      <div class="space--sm"></div>
+      <div class="title title--lg">{{project.title}}</div>
+      <div class="space--sm"></div>
+      <span class="btn btn--sm btn--outline btn--outline-white">Zur Fallstudie</span>
+
+    </div>
+  </div>
+  <div class="project-tile__overlay"></div>
+</div>

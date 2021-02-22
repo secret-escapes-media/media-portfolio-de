@@ -1,0 +1,22 @@
+<div class="banner">
+  <div class="site-header__offset"></div>
+  <div class="banner__wrap">
+
+    <div class="container">
+      <div class="width--xl">
+
+        {% if page.banner.content %}
+          {{page.banner.content | liquify}}
+        {% else %}
+          {% if page.banner.title-sup %}<h2 class="sub-title">{{page.banner.title-sup}}</h2>{% endif %}
+          <h1 class="title banner-title">{% if page.banner.title %}{{page.banner.title}}{% else %}{{page.title}}{% endif %}</h1>
+          {% if page.banner.title-sub %}<h2 class="sub-title">{{page.banner.title-sub}}</h2>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+  <div class="banner__background bv-parallax" style="background-image: url({{site.img}}/projects/{{page.id}}/banner.jpg); background-position: bottom center;">
+
+  </div>
+</div>

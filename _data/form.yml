@@ -1,0 +1,16 @@
+- id: contact
+  post-url: "https://getform.io/f/91efd341-f405-4743-aa6b-cf06d4720508"
+  fields:
+    - id: name
+      type: text
+      label: Name
+      required: true
+    - id: email
+      type: email
+      label: Email
+      required: true
+    - id: message
+      type: text-long
+      label: Message
+      required: true
+  submit: Send message

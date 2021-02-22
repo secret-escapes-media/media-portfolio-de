@@ -1,0 +1,19 @@
+
+{% assign image   = include.image %}
+{% assign content = include.content %}
+{% assign bordercolor = include.bordercolor %}
+<div class="">
+  <div class="container vpad--lg">
+
+    <div class="row scrolltrack  {% if include.flip %} row{% endif %}">
+
+      <div class="col col--4 ">
+        {{content}}
+      </div>
+      <div class="col col--8 scrolltrack__image ">
+        <img class="{{bordercolor}}"  src="{{site.img}}/projects/{{page.id}}/{{image}}">
+      </div>
+
+    </div>
+  </div>
+</div>

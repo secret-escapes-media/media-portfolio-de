@@ -1,0 +1,257 @@
+// site header and navigation styles
+
+$site-nav-height:     70px;
+$site-nav-height-sm:  54px;
+$site-nav-padding:    $s4;
+$site-nav-padding-sm: $s2;
+
+// global site nav height with breakpoint
+@mixin site-nav-height {
+  height: $site-nav-height-sm;
+  min-height: $site-nav-height-sm;
+  @include bp($md){
+    height: $site-nav-height;
+    min-height: $site-nav-height;
+  }
+}
+
+.site-header {
+  position: fixed;
+  background-color: $black;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-nav-upper;
+  & .logo__svg {
+    width: 120px;
+    @include bp($md){
+      width: 140px;
+    }
+    & .st0 { fill: $white; }
+  }
+  @include site-nav-height;
+  @include transition;
+
+  @include bp($xxl){
+    background-color: transparent;
+    & .logo__svg {
+      width: 160px;
+      & .st0 { fill: $grey-darkest; }
+    }
+    &.scrolled {
+      background-color: rgba($black,0.85);
+      & .logo__svg .st0 { fill: $white; }
+    }
+    &.hide {
+      top: -$site-nav-height;
+    }
+  }
+
+  &__offset:before {
+    // corrects header overlapping content
+    content: '';
+    display: block;
+    @include site-nav-height;
+  }
+
+}
+
+
+// ---------- NAV FOR CORE SE SITE ----------
+
+// nav-list-bp: $xxl;
+// logo-bp: $xxl;
+
+.site-nav {
+  height: 100%;
+  padding-left: $site-nav-padding-sm;
+  padding-right: $site-nav-padding-sm;
+  font-family: $font-core;
+  text-align: center;
+  width: 100%;
+  max-width: $xxxl;
+  margin-left: auto;
+  margin-right: auto;
+  @include page-padding;
+
+  // spacing for double logos in site nav
+  .logo + .logo { margin-left: $s0; }
+
+  @include bp(md){
+    padding-left: $site-nav-padding;
+    padding-right: $site-nav-padding;
+  }
+  &__wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    min-width: $site-nav-height-sm;
+    @include bp($xxl) { width: 33.33%; }
+    @include bp($xxl) { display: none; }
+  }
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    @include bp($xxl) {
+      width: 33.33%;
+      flex-grow: 3; // needed for firefox
+    }
+    @include bp($xxl) {
+      width: 33.33%;
+      justify-content: flex-start;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
+    height: 100%;
+    min-width: $site-nav-height-sm;
+    visibility: hidden;
+    @include bp($xxl) {
+      width: 66.667%;
+      visibility: visible;
+    }
+  }
+  &__list {
+    display: none;
+    margin-left: $s-1;
+    line-height: 0;
+    list-style: none;
+    padding: 0;
+    height: 100%;
+    @include bp($xxl) {
+      display: flex;
+      flex-direction: row;
+    }
+    &-item {
+      color: $grey-darkest;
+      display: flex;
+      margin: 0;
+      height: 100%;
+      align-items: center;
+      vertical-align: middle;
+      position: relative;
+      .scrolled & { color: $white; }
+      &:hover {
+        color: $grey-darkest;
+        .scrolled & { color: $white; }
+      }
+      &.is-current {
+        color: $grey-darkest;
+        .scrolled & { color: $white; }
+        &:after {
+          content: "";
+          width: 40px;
+          height: 2px;
+          background-color: $orange;
+          display: block;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 0;
+        }
+      }
+    }
+    &-link {
+      display: flex;
+      padding: $s-1 $s-4;
+      font-weight: 600;
+      font-size: $s-1;
+      line-height: 0;
+      @include transition;
+    }
+
+    // Inverted nav on image
+    .layout--project & {
+      &-item {
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+        &.is-current {
+          color: $white;
+          &:after {background-color: $orange;}
+        }
+      }
+      &-link {}
+    }
+  }
+}
+
+
+// ---------- MOBILE NAV OFF CANVAS ----------
+
+$mobile-nav-width: 75%;
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: $z-overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: $mobile-nav-width;
+  font-family: $font-core;
+  color: $grey-lighter;
+  overflow-y: auto;
+  background-color: rgba($grey-darker,.9);
+  @include transition;
+
+  &.is-closed {
+    left: -$mobile-nav-width;
+    visibility: hidden;
+    opacity: 0;
+  }
+  &.is-open {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  &__wrap {
+    padding-left: $site-nav-padding-sm;
+    padding-right: $site-nav-padding-sm;
+    @include bp(md){
+      padding-left: $site-nav-padding;
+      padding-right: $site-nav-padding;
+    }
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    @include site-nav-height;
+  }
+  &__middle {
+    flex-grow: 1;
+  }
+  &__list {}
+  &__list-item {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  &__list-link {
+    display: block;
+    padding-top: $s0;
+    padding-bottom: $s0;
+    font-size: $s0;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include transition;
+    &.is-current { color: $black; }
+    & + & { border-top: 1px solid rgba($black,.33); }
+  }
+  @include bp($xxl){ display: none; }
+}

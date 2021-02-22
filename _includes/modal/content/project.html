@@ -1,0 +1,39 @@
+<!-- Project modal -->
+<div class="container container--xl container--no-padding modal__content modal-project bg--white">
+
+  <!-- Image gallery -->
+  <div class="project-gallery" id="project-gallery__{{item.id}}">
+    {% for slide in item.gallery %}
+      <div class="project-gallery__slide{% if forloop.first%} is-open{% endif %}">
+        <div class="bg-img bg-img--16-9" style="background-image: url({{site.img}}/projects/{{item.id}}/{{slide.image}});"></div>
+      </div>
+    {% endfor %}
+    <div class="project-gallery__slide-sizer"></div>
+
+    <div class="">
+      <div class="js-project-gallery-nav project-gallery__nav project-gallery__nav--next" data-target="project-gallery__{{item.id}}" data-nav-direction="next"></div>
+      <div class="js-project-gallery-nav project-gallery__nav project-gallery__nav--previous" data-target="project-gallery__{{item.id}}" data-nav-direction="prev"></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container boxpad--xl">
+    <div class="row">
+      <div class="col col--12">
+        <h4 class="title title--md text--bold">{{item.title}}</h4>
+        <p>{{item.intro | strip_html}}</p>
+      </div>
+    </div>
+    <div class="space--md"></div>
+    <div class="row row--4-4-4 text--center">
+      {% for highlight in item.highlights %}
+        <div class="col col--4">
+          <hr>
+          <div class="title title--xs">{{highlight.val}}</div>
+          <span class="title title--sans text--bold">{{highlight.key}}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

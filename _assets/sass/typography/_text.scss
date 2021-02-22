@@ -1,0 +1,38 @@
+// general modifier styles for text
+
+.text {
+  // sizes
+  &--xxl { font-size: 1.45rem; line-height: 1.6; letter-spacing: 0; }
+  &--xl  { font-size: 1.32rem; line-height: 1.6; letter-spacing: 0; }
+  &--lg  { font-size: 1.2rem; letter-spacing: 0; }
+  &--sm  { font-size: .9rem; }
+
+  // styles
+  &--italic       { font-style: italic; }
+  &--serif       { font-family: serif; }
+  &--light        { font-weight: 300; }
+  &--normal       { font-weight: 400; }
+  &--medium       { font-weight: 500; }
+  &--bold         { font-weight: 600; }
+  &--bolder       { font-weight: 700; }
+  &--wide    { letter-spacing: .1em; }
+  &--wide-lg { letter-spacing: .2em; }
+  &--upper        { text-transform: uppercase; }
+
+  // colours
+  &--white { color: $grey-lightest; }
+  &--black { color: $grey-darkest; }
+  &--orange { color: $orange; }
+  &--turquoise { color: $turquoise; }
+
+  // alignment
+  &--left   { text-align: left; }
+  &--right  { text-align: right; }
+  &--center { text-align: center; }
+  &--justify { text-align: justify; }
+  @include bp($lg) {
+    &--bp-left   { text-align: left; }
+    &--bp-right  { text-align: right; }
+    &--bp-center { text-align: center; }
+  }
+}

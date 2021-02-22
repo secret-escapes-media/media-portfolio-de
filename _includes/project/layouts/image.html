@@ -1,0 +1,30 @@
+
+{% assign ratio = '16-9' %}
+{% if include.ratio %}
+  {% assign ratio = include.ratio %}
+{% endif %}
+
+{% assign image = include.image %}
+
+{% assign caption = include.caption %}
+
+<div class="bg-img bg-img--{{ratio}}" style="background-image: url({{site.img}}/projects/{{page.id}}/{{image}}); margin-top: -180px;">
+  {% if caption %}
+  <div class="bg-img__caption">
+    <div class="boxpad--sm text--medium">
+      {{caption}}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<!--
+<div class="vpad--xxl">
+  <div class="bv-laptop">
+    <div class="content">
+      <iframe style="width:96.5%; height: 95%;" src="https://mp.secretescapes.com/de/2020/japan/" />
+    </div>
+  </div>
+</div>
+-->

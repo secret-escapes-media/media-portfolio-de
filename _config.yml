@@ -1,0 +1,21 @@
+# Site settings
+title: Media @ Secret Escapes
+core-se-link: https://www.secretescapes.com/current-sales
+description: >
+  We are Media @ Secret Escapes. Our core goal is to inspire and motivate our members to experience unforgettable travel around the world. Through creative concepts and innovative solutions, we craft high-performing, bespoke campaigns across web, social, video, email and display, proven to captivate our members and influence their wanderlust.
+
+# file paths
+url:     "http://mp.secretescapes.com" # the base hostname & protocol for your site
+baseurl: "/de/media-sales" # the subpath of your site, e.g. /blog/
+img:     "/de/media-sales/_assets/img"
+css:     "/de/media-sales/_assets/css"
+js:      "/de/media-sales/_assets/js"
+
+
+# Build settings
+markdown: kramdown
+exclude: [node_modules, gulpfile.js, package.json, package-lock.json, js/script.js]
+keep_files: [_assets]
+sass:
+    sass_dir: css
+    style: compressed

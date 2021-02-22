@@ -1,0 +1,16 @@
+
+{% assign slides = include.content %}
+<!-- Image gallery -->
+<div class="project-gallery" id="project-gallery__{{page.id}}">
+  {% for slide in slides %}
+    <div class="project-gallery__slide{% if forloop.first%} is-open{% endif %}">
+      <div class="bg-img bg-img--16-9" style="background-image: url({{site.img}}/projects/{{page.id}}/{{slide.image}});"></div>
+    </div>
+  {% endfor %}
+  <div class="project-gallery__slide-sizer"></div>
+
+  <div class="">
+    <div class="js-project-gallery-nav project-gallery__nav project-gallery__nav--next" data-target="project-gallery__{{page.id}}" data-nav-direction="next"></div>
+    <div class="js-project-gallery-nav project-gallery__nav project-gallery__nav--previous" data-target="project-gallery__{{page.id}}" data-nav-direction="prev"></div>
+  </div>
+</div>

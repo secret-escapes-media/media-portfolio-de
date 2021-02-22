@@ -1,0 +1,32 @@
+<header class="site-header">
+
+  <div class="site-nav">
+    <div class="site-nav__wrap">
+
+      <div class="site-nav__left">
+        <div class="js-toggle-mobile-nav icon icon--menu"></div> <!-- mobile menu icon -->
+      </div>
+
+      <div class="site-nav__center">
+        {% include components/logo-se.html placement="header" %}
+      </div>
+
+      <div class="site-nav__right">
+        {% include nav/site.html block="site-nav" %}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav is-closed">
+    <div class="mobile-nav__top mobile-nav__wrap">
+      <div class="js-toggle-mobile-nav icon icon--close"></div><!-- close icon -->
+    </div>
+    <div class="mobile-nav__middle mobile-nav__wrap">
+      {% include nav/site.html block="mobile-nav" %}
+    </div>
+  </div>
+
+
+</header>

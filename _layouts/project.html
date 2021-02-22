@@ -1,0 +1,131 @@
+---
+layout: default
+---
+
+
+<div class="vpad--xl">
+  <div class="container">
+      {{page.intro-headline}}
+     <div class="space--sm"></div>
+    <div class="row row--reverse">
+
+      <div class="col col--xl-4">
+        <ul class="list--lined">
+          {% for detail in page.details %}<li><strong>{{detail.key}}:</strong> {{detail.val}}</li>{% endfor %}
+          {% if page.live-url %}
+            <a href="{{page.live-url}}" target="_blank" class="link link--external">View Microsite</a>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="col col--xl-8">
+        {{page.intro}}
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{{content}}
+
+
+<!-- TOP STATS -->
+
+
+
+<div class="container text--center width width--sm vpad--md">
+
+  <div class="title title--lg">{{page.results.title}}</div>
+</div>
+
+{% for result in page.results.items %}
+  <div class=" text--center width width--lg">
+
+    <div class="text text--md">{{result.summary}}</div>
+    <div class="space--xl"></div>
+  </div>
+
+  <div class="container text--center">
+    <div class="row row--3-3-3-3">
+      <div class="space--sm"></div>
+        {% for highlight in result.highlights %}
+        <div class="col ">
+          <div class="bg--white bg-img bv-results bg-img--16-9 bv-results-{{highlight.icon}}" style="background-image: url({{site.img}}/icons/icon-results-{{highlight.icon}}.svg); " alt="{{highlight.key}}"></div>
+          <div class="title title--md text--turquoise">{{highlight.val}}</div>
+          <span class="title title--sans text--upper text--bold text--wide">{{highlight.key}}</span>
+
+          <hr>
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+
+
+
+<div class="container text--center">
+  <div class="width width--lg">
+    <p class="text text--xxl">To hear more about this campaign, or find out about how we could help your brand, get in touch today!</p>
+    <div class="space--sm"></div>
+    <a href="{{site.baseurl}}/contact" class="btn btn--solid">Contact us</a>
+  </div>
+</div>
+
+
+
+<!-- NEXT PROJECT -->
+{% assign projects = site.html_pages | where: 'group-parent', 'work' %}
+{% assign nextId = page.group-order | plus: 1 %}
+{% assign nextProject = projects | where: 'group-order', nextId %}
+{% if nextProject == empty %}
+  {% assign nextProject = projects | where: 'group-order', '1' %}
+{% endif %}
+<div class="container">
+  <div class="row row--gutters-xs">
+
+
+    {% for project in projects %}
+      {% if project.title == page.title %}
+
+          <div class="col col--constant-3 col--lg-2"  >
+            <div class="bg-img bg-img--16-9" style="background-image: url({{site.img}}/projects/{{project.id}}/banner.jpg);border: 2px solid #FF791A; transform: scale(1.1); ">
+              <a href="{{site.baseurl}}{{project.url}}" class="bg-img__link"></a>
+              <div class="bg-img__content">
+                <div class="boxpad--lg">
+
+                  <div class="text text--md text--bold">{{project.title}}</div>
+                </div>
+              </div>
+              <div class="bg-img__overlay"></div>
+            </div>
+          </div>
+      {% else %}
+        <div class="col col--constant-3 col--lg-2"  >
+          <div class="bg-img bg-img--16-9 bg-img--zoom" style="background-image: url({{site.img}}/projects/{{project.id}}/banner.jpg);  ">
+            <a href="{{site.baseurl}}{{project.url}}" class="bg-img__link"></a>
+            <div class="bg-img__content">
+              <div class="boxpad--lg">
+
+                <div class="text text--lg text--bold">{{project.title}}</div>
+              </div>
+            </div>
+            <div class="bg-img__overlay" ></div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+<div class="space--xxxl"></div>

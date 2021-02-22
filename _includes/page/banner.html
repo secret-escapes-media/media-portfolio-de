@@ -1,0 +1,29 @@
+<div class="banner">
+  <div class="site-header__offset"></div>
+  <div class="banner__wrap">
+
+    <div class="container">
+      <div class="width--xl">
+        {% if page.banner.content %}
+          {{page.banner.content | liquify}}
+        {% else %}
+          {% if page.banner.title-sup %}<h2 class="sub-title">{{page.banner.title-sup}}</h2>{% endif %}
+          <h1 class="title banner-title">{% if page.banner.title %}{{page.banner.title}}{% else %}{{page.title}}{% endif %}</h1>
+          {% if page.banner.title-sub %}<h2 class="sub-title">{{page.banner.title-sub}}</h2>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+  {% if page.layout == 'project' or page.layout == 'project-casestudy'  %}
+    <div class="banner__bg-image" style="background-image: url({{site.img}}/projects/{{page.id}}/banner.jpg);">
+      <div class="banner__fade"></div>
+      <div class="banner__overlay"></div>
+    </div>
+  {% else %}
+  <div class="banner__image" style="background-image: url({{site.img}}/banner/{{page.id}}.jpg);">
+    <div class="banner__accent"></div>
+    <div class="banner__overlay"></div>
+  </div>
+  {% endif %}
+</div>

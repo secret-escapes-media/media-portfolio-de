@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include page/head.html %}
+
+  <body class="page--{{page.id}} layout--{{page.layout}}">
+
+    {% include components/tracking.html %}
+
+    {% include page/header.html %}
+
+    {% if page.layout == "project" or page.layout == "project-coming-soon"%}
+      {% include page/project-banner.html %}
+    {% else %}
+      {% include page/banner.html %}
+    {% endif %}
+
+    <div class="content-spacing section-spacing">
+      {{ content }}
+    </div>
+
+    {% unless page.id == "home" or page.id == "work" or page.layout == "project" or page.layout == "project-coming-soon" %}
+      {% include page/promo-work.html %}
+    {% endunless %}
+
+    {% include page/footer.html %}
+
+    {% include modal/modal.html %}
+
+  </body>
+
+</html>

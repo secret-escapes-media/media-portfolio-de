@@ -1,0 +1,81 @@
+// element styles for written content
+
+em      { font-style: italic; }
+strong  { font-weight: 600; }
+sup {
+  font-size: $s-1;
+  line-height: 0;
+  vertical-align: super;
+}
+
+// standard inline link style
+a[href]:not([class]) {
+  color: $orange;
+  @include transition;
+  &:hover { color: $orange-darker; }
+}
+
+li {
+  list-style-position:
+  outside; margin-left: $s1;
+}
+ul li   { list-style-type: disc; }
+ol li   { list-style-type: decimal; }
+
+.content-spacing ul.list {
+  &--lined {
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: left;
+    & li {
+      list-style: none;
+      margin-left: 0;
+      padding: 6px 0;
+      border-top: 1px solid rgba($grey-darkest,0.1);
+      &:last-child { border-bottom: 1px solid rgba($grey-darkest,0.1); }
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin-bottom: $s2;
+  margin-top: 0;
+  background-color: rgba($grey-darkest,0.1);
+  .text--white & { background-color: rgba($white,0.2); }
+  * + & { margin-top: $s2; }
+}
+.hr {
+  &--center{ width: 80px; margin-left: auto; margin-right: auto; }
+  &--left { width: 80px; margin-left: 0; }
+  &--right { width: 80px; margin-right: 0; }
+}
+
+
+.link {
+  display: inline-block;
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  padding: $s-4 $s2;
+  border: 1px solid rgba($grey-darkest,0.2);
+  border-radius: 4px;
+  * + & { margin-top: $s0; }
+  &:hover { border-color: rgba($grey-darkest,0.4); }
+  &--external:after {
+    content: "";
+    background-image: url('../img/icons/icon-external-link.svg');
+    height: 18px; width: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 8px;
+    width: 16px;
+  }
+}
+

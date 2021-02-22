@@ -1,0 +1,23 @@
+
+{% assign image   = include.image %}
+{% assign image2   = include.image2 %}
+{% assign content = include.content %}
+
+<div class="">
+  <div class="container vpad--lg">
+    <div class="row scrolltrack {% if include.flip %} row{% endif %}">
+
+      <div class="col col--4 ">
+        {{content}}
+      </div>
+      <div class="col col--8 scrolltrack__image">
+        <img class="" src="{{site.img}}/projects/{{page.id}}/{{image}}">
+
+      {% if image2 %}
+         <div class="space--md"></div>
+        <img class="" src="{{site.img}}/projects/{{page.id}}/{{image2}}">
+      </div>
+{% endif %}
+    </div>
+  </div>
+</div>

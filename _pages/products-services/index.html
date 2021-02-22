@@ -1,0 +1,124 @@
+---
+layout: default
+id: products-services
+title: Products & Services
+nav: true
+nav-order: 4
+
+intro: >
+  <p class="text--lg">Find out what we can do for your brand here. From brand integration and audience engagement to bespoke creative solutions, discover how we can deliver on your campaign needs with our range of products and expertise. </p>
+
+
+process:
+  - title: Creative Solutions
+    content: When actively pitching and responding to briefs we consider the strategic, commercial and creative fit to ensure the campaign concept meets the aims of your campaign. We will curate a proposal that works seamlessly in aligning the two brands and create a true partnership that is beneficial to both parties, with assets you can use outside of the partnership.
+
+  - title: Production
+    content: We create bespoke design and editorial content, written with your key messaging in mind and shaped to suit our tone of voice, what we know our audience will engage with, and designed with your imagery and brand guidelines in mind. We create all campaign assets from display banners to video content, all managed in-house by our specialist team.
+
+  - title: Project management and activation
+    content: You will have a dedicated campaign manager who will be your primary point of contact throughout the campaign. They utilise our member data to target based on browsing behaviour, past bookings and our comprehensive knowledge of members' interests and holiday preferences. They are dedicated to ensuring the smooth running of the campaign to hit all goals & KPIs.
+
+  - title: Results and reporting
+    content: Your campaign manager will provide reports throughout the campaign, monitoring performance against benchmarks and optimising the campaign where necessary. At the end of your campaign you will be provided with a fully comprehensive post campaign report, with an analysis of the campaign plus recommendations and guidance for future campaigns.
+
+
+products:
+  - id: websites
+    title: Campaign websites
+    content: Our campaign websites are fully integrated and thereby an extension of our core site, taking our members on a journey that meets your campaign goals from brand or product awareness, data collection or conversion. From in-the-know travel guides to interactive elements, your bespoke campaign website is the centre of the brand partnership.
+
+  - id: magazine
+    title: Sponsored Articles
+    content: It’s easier than ever to produce technically-brilliant footage of beautiful destinations.  We strive to do more than that, crafting bespoke stories that get under-the-skin of a destination or brand message. Our industry-leading video output is authentic, relatable, and visually stunning.
+
+  - id: email
+    title: Newsletters and email
+    content: With 16 million members in our UK database, we have one of the most powerful CRM offerings on the market, with an array of filtering tools at our disposal to target the right groups at the right time – pre-and-post departure emails, geo-targeted emails, active-browser emails and much more.
+
+  - id: display
+    title: Display
+    content: Our display advertising is built to your needs, as 70% of our formats are fully integrated in the site experience through bespoke sizing and purposeful placement. This offers our partners meaningful impact across our display assets.
+
+  - id: social
+    title: Social
+    content: With 4.4 million followers on Facebook and 295k Instagram, we’re set to create powerful social engagement to spread your brand message. From Instagram Story takeovers to video edits perfectly tailored for our social platforms, we can leverage our reach in the roll-out of any campaign.
+
+  - id: data
+    title: Data capture
+    content: We are experts at generating quality leads and insights by filtering our members by their preferences and tastes.
+
+---
+
+
+
+
+
+
+
+<div class="vpad--xl">
+  <div class="container">
+    <div class="width width--lg">
+      {{page.intro}}
+    </div>
+  </div>
+</div>
+<hr>
+
+
+<div class="vpad--xl">
+
+
+
+  <div class="container">
+    <div class="width width--xl text--center">
+      <h2 class="title title--sans text--upper title--xxxs text--wide">Our products</h2>
+      <div class="space--xs"></div>
+      <h2 class="title title--lg">What we make</h2>
+    </div>
+
+    <div class="space--lg"></div>
+    <div class="row">
+
+      {% for product in page.products %}
+      <div class="col col--lg-6 col--xxl-4 text--center">
+        <div class="bg-img bg-img--21-9 bg-img--contain" style="background-image: url({{site.img}}/icons/product-{{product.id}}.svg);"></div>
+        <div class="space--sm"></div>
+        <h4 class="title title--xs title--sans">{{product.title}}</h4>
+        <p>{{product.content}}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="vpad--xl bg--grey-lightest">
+
+  <div class="container">
+
+    <div class="width width--xl text--center">
+      <h2 class="title title--sans text--upper title--xxxs text--wide">Our process</h2>
+      <div class="space--xs"></div>
+      <h2 class="title title--lg">How we work</h2>
+      <div class="space--xl"></div>
+    </div>
+
+    <div class="row row--6-6 row--gutters-lg">
+      {% for step in page.process %}
+      <div class="col">
+        <span class="title title--xxxs title--sans"> </span>
+        <h4 class="title title--xs text--bolder title--sans">0{{forloop.index}}. {{step.title}}</h4>
+        <p>{{step.content}}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+<div class="space--xl"></div>
+</div>

@@ -1,0 +1,27 @@
+
+{% assign image   = include.image %}
+{% assign image2   = include.image2 %}
+{% assign content = include.content %}
+<div class="">
+  <div class="container vpad--xl">
+
+
+    <div class="row scrolltrack {% if include.flip %} row{% endif %}">
+
+      <div class="col col--8 scrolltrack__image">
+
+          <div class="bv-shadow bv-devices bg-img--16-9 " style="overflow:scroll;">
+            <div class="bv-mob-show bv-mob-speaker"></div>
+            <img class="bv-mob-hide" src="{{site.img}}/projects/{{page.id}}/{{image}}"></img>
+            <img class="bv-mob-show " src="{{site.img}}/projects/{{page.id}}/{{image2}}"></img>
+          </div>
+          <div class="bv-shadow bv-tablet-hide" style=""></div>
+
+      </div>
+      <div class="col col--4 scrolltrack__content">
+        {{content}}
+      </div>
+
+    </div>
+  </div>
+</div>

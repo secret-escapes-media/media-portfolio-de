@@ -1,0 +1,205 @@
+---
+layout: default
+id: home
+nav: true
+nav-order: 1
+title: Home
+
+banner:
+  content: >
+    <h1 class="title title--xxl"><span class="text--bolder" id="banner-text-swap">Industry-leading</span><br /> <span class="text--light">solutions that<br /> inspire escapism</span></h1>
+
+intro: >
+  <p class="text--lg">Our core goal is to inspire and motivate our members to experience unforgettable travel around the world. Our discerning, global audience comes to us precisely for such inspiration, through the beautiful and luxurious hotels we offer and the in-the-know content we create. We can put your brand front and centre of this conversation, allowing you to speak directly to our members. </p>
+  <p class="text--lg">Through creative concepts and innovative solutions, we will craft high-performing, bespoke campaigns across web, social, video, email and display, proven to captivate our members and influence their wanderlust. </p>
+
+clients:
+  - logo: visitportugal.svg
+    name: Visit Portugal
+  - logo: lufthansa.svg
+    name: Lufthansa
+  - logo: abu-dhabi.svg
+    name: Abu Dhabi
+  - logo: condor.svg
+    name: Condor
+  - logo: germany.svg
+    name: Germany
+  - logo: klm.svg
+    name: KLM
+  - logo: lexus.svg
+    name: Lexus
+  - logo: nikon.svg
+    name: Nikon
+  - logo: finnland.svg
+    name: Visit Finnland
+  - logo: qatar-airways.svg
+    name: Qatar Airways
+  - logo: salzburgerland.svg
+    name: SalzburgerLand
+  - logo: australia.svg
+    name: Tourism Australia
+  - logo: vicampo.svg
+    name: Vicampo
+  - logo: south-africa.svg
+    name: South Africa
+  - logo: sixt.svg
+    name: Sixt
+  - logo: barbados.svg
+    name: Barbados
+  - logo: Montblanc.svg
+    name: Montblanc
+  - logo: bestsecret.svg
+    name: Best Secret
+
+
+testimonials:
+  - id: portugal
+    title: Portugal
+    contact: xx, yy
+    description: "After a successful autumn campaign in 2018, we run a spring campaign with Secret Escapes in 2019 which again produced very good results with regard to the booking numbers but also the engagement of the Secret Escapes members with the campaign content. We see that the team of Secret Escapes puts a lot of effort in designing tailor-made campaigns and producing unique content that inspires the users to book a trip to Portugal. We are looking forward to our next cooperation with Secret Escapes this autumn!"
+  - id: salzburg
+    title: Salzburger Land
+    contact: Julia Wurm, Leitung Marketing
+    description: "SalzburgerLand, together with Secret Escapes, launched an online cross-marketing campaign in January 2020 to promote the winter offer. We had the opportunity to show inspiring vacation opportunities to potential guests with our own landing page, including lots of storytelling and photos, as well as targeted marketing activities. And the numbers prove us right - the nights booked at Secret Escapes have increased by 141%."
+  - id: nikon
+    title: Nikon
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  - id: condor
+    title: Condor
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+
+
+
+
+services:
+  - id: audience-segmentation
+    title: Audience segmentation
+  - id: incremental-bookings
+    title: Incremental bookings
+  - id: engagement
+    title: Engagement
+  - id: storytelling
+    title: Brand awareness and storytelling
+  - id: creative-solutions
+    title: Creative solutions
+  - id: integration
+    title: True brand integration
+
+
+---
+
+
+
+<div class="vpad--xl">
+  <div class="container">
+    <div class="width width--lg">
+      {{page.intro}}
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="bg--grey-lightest vpad--xl">
+
+
+
+    <div class="container services" id="services">
+      <div class="width width--xl text--center">
+        <h2 class="title title--sans text--upper text--lg text--bold text--wide">Services</h2>
+        <div class="space--xs"></div>
+        <h3 class="title title--lg">What we deliver</h3>
+        <p class="text--lg">We have a range of insights and expertise that can be used to successfully deliver on your campaign objectives and targets.</p>
+      </div>
+      <div class="space--xl"></div>
+      <div class="row">
+        {% for item in page.services %}
+        <div class="col col--constant-4 col--lg-2 text--center services__item">
+          <div class="bg--white services__item-icon bg-img bg-img--1-1 bg-img--circle" style="background-image: url({{site.img}}/icons/icon-{{item.id}}.svg);" alt="{{item.title}}">
+          </div>
+          <div class="space--xs"></div>
+          <h4 class="title title--xxxs title--sans">{{item.title}}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  <div class="space--sm"></div>
+</div>
+
+<div class="bg--white vpad--xl">
+
+  <div class="container clients" id="clients">
+    <div class="width width--xl text--center">
+
+      <h2 class="title title--sans text--upper text--lg text--bold text--wide">Clients</h2>
+      <div class="space--xs"></div>
+      <h3 class="title title--lg">Who we work with</h3>
+      <p class="text--lg">A small excerpt of our clients</p>
+      <div class="space--xl"></div>
+    </div>
+    <div class="row row--gutters-xs">
+      {% for client in page.clients %}
+        <div class="col col--constant-3 col--lg-2">
+          <div class="clients__logo clients__logo-{{client.name|slugify}} bg-img bg-img--1-1 bg-img--zoom bg--grey-lightest" style="background-image: url({{site.img}}/clients/{{client.logo}});"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container services" id="testimonials">
+    <div class="width width--xl text--center">
+
+      <div class="space--lg"></div>
+      <h2 class="title title--sans text--upper text--lg text--bold text--wide">Testimonials</h2>
+      <div class="space--xs"></div>
+      <h3 class="title title--lg">What our clients say</h3>
+    </div>
+    <div class="space--xxl"></div>
+    <div class="row">
+      {% for item in page.testimonials %}
+      <div class="col col--constant-3 col--lg-3 services__item">
+        <h4 class="title title--xxxs title--sans">{{item.title}}</h4>
+        <div class="space--sm"></div>
+            <div class="text--md text--italic  ">"{{item.description}}"</div>
+            <div class="space--xxs"></div>
+                <div class="text--md text--bold ">{{item.contact}}</div>
+        <div class="space--xs"></div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+<div class="space--xl"></div>
+</div>
+
+<div class="bg--grey-lightest vpad--xl">
+
+  <div class="container">
+
+    <div class="width width--xl text--center">
+
+      <h2 class="title title--sans text--upper text--lg text--bold text--wide">Case Studies</h2>
+      <div class="space--xs"></div>
+      <h3 class="title title--lg">Our most interesting <br /> media campaigns</h3>
+      <p class="text--lg">Working across a diverse range of industries, we have produced integrated creative solutions with results that match and exceed the expectations of our previous clients. </p>
+    </div>
+
+    <div class="space--xl"></div>
+    <div class="row row--xxl-6-6">
+      {% assign projects = site.html_pages | where: 'group-parent', 'work' %}
+      {% assign casestudies = projects | where: 'case-study', 'true' | sort:'group-order' %}
+      {% for project in casestudies %}
+      <div class="col">
+        {% include project/casestudy-tile.html %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="space--xxl"></div>
+    <div class="text--center">
+      <a href="{{site.baseurl}}/work" class="btn btn--solid btn--lg">More Case Studies</a>
+    </div>
+  </div>
+
+</div>
